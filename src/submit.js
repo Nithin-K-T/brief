@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import TabPanel from './tabs';
 import ViewList from './viewList';
+import SubmitDialogBox from './submit_modal';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -18,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 0,
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     borderRadius: 5,
-    color: '#fff'
+    color: '#fff',
+    display: 'none'
   },
   title:{
     padding: '10px 25px',
@@ -91,6 +93,7 @@ const SubmitForm = () => {
       </Grid>
     </Grid>
     <ViewList/>
+    <SubmitDialogBox />
     </Grid>
   );
 }

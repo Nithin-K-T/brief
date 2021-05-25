@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import TabPanel from './tabs';
+import ViewList from './viewList';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -12,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     background: '#656fa5',
-    minHeight: '100vh',
+    minHeight: '105vh',
     marginTop: 0,
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     borderRadius: 5,
@@ -37,13 +39,19 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiTextField-root':{
       width: 400,
       margin: '15px 10px'
+    },
+    '& .MuiLink-root': {
+      display: 'block',
+      margin: 'auto',
+      paddingBottom: '10px',
+      color: '#fff'
     }
   },
   btnGroup: {
     display: 'flex',
     justifyContent: 'center',
     position: 'relative',
-    top: 50,
+    top: 10,
     bottom: 0,
     '& .MuiButton-root': {
       margin: '0px 15px',
@@ -57,14 +65,18 @@ const SubmitForm = () => {
   const classes = useStyles();
 
   return (
+    <Grid>
     <Grid container justify="center">
-      <Grid item xs={4} className={classes.box}>
+      <Grid item lg={4} className={classes.box}>
          <header className={classes.title}>Submit</header>
          <form>
            <Grid className={classes.subTitle}>
-             <h3>Name</h3>
-             <TextField className={classes.link} id="outlined-search" 
-             label="link" type="search" variant="outlined" />
+              <h3>Name</h3>
+              <TextField className={classes.link} id="outlined-search" 
+              label="Type..." type="search" variant="outlined" />
+              <Link href="#">
+                 Link
+              </Link>
             </Grid>
             <TabPanel/>
             <Grid className={classes.btnGroup}>
@@ -77,6 +89,8 @@ const SubmitForm = () => {
             </Grid>  
          </form>
       </Grid>
+    </Grid>
+    <ViewList/>
     </Grid>
   );
 }

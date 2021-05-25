@@ -7,6 +7,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,14 @@ const useStyles = makeStyles((theme) => ({
   listBox: {
     minHeight: '15vh',
     background: '#f3f2f2',
-    borderRight: '1px solid'
+    '& h4': {
+      margin: '10px 0px 10px 0px'
+    },
+    '& .MuiButton-root': {
+      display: 'flex',
+      margin: '5px auto',
+      width: 100
+    }
   }
 }));
 
@@ -54,8 +62,22 @@ const DetailsTab = () => {
       </FormControl>
       <Grid container className={classes.listContainer}>
         <Grid item xs={6} className={classes.listBox}>
+        <h4>List A</h4>
         </Grid>
         <Grid item xs={6} className={classes.listBox}>
+          <h4>List B</h4>
+          <Button variant="contained" color="primary">
+            DELHI
+          </Button>
+          <Button variant="contained" color="primary">
+            PUNE
+          </Button>
+          <Button variant="contained" color="primary">
+            NOIDA
+          </Button>
+          <Button variant="contained" color="primary">
+            BGR
+          </Button>
         </Grid>
       </Grid>
     </Grid>

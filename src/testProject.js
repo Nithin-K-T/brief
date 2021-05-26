@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import {Grid, Button, TextField} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
@@ -8,8 +8,8 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import TabPanel from './tabs';
-import Link from '@material-ui/core/Link';
+import ViewList from './viewList';
+import SubmitDialogBox from './submit_modal';
 
 const styles = (theme) => ({
   root: {
@@ -18,7 +18,7 @@ const styles = (theme) => ({
     background: '#656fa5',
     color: '#fff',
     '& .MuiTypography-h6': {
-      paddingLeft: '20px'
+      paddingLeft: '10px'
     }
   },
   closeButton: {
@@ -42,45 +42,8 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  btnGroup: {
-    display: 'flex',
-    justifyContent: 'center',
-    position: 'relative',
-    top: 10,
-    bottom: 0,
-    '& .MuiButton-root': {
-      margin: '10px 15px',
-      width: 100
-    }
-  },
-  subTitle:{
-    margin: '10px 10px 20px 10px',
-    border: '1px solid',
-    '& h3':{
-       padding: 10,
-       margin: 0,
-       textAlign: 'left',
-       borderBottom: '1px solid',
-       fontWeight: 400
-    },
-    '& .MuiTextField-root':{
-      width: 445,
-      margin: '15px 10px'
-    },
-    '& .MuiLink-root': {
-      display: 'flex',
-      margin: 'auto',
-      paddingBottom: '10px',
-      color: '#fff',
-      justifyContent: 'center'
-    }
-  },
-  label: {
-    fontSize: '20px',
-    fontWeight: 500,
-    padding: '10px',
-    position: 'relative',
-    top: '20px'
+  testBtn: {
+    marginTop: 50
   }
 }));
 
@@ -101,8 +64,12 @@ const DialogTitle = withStyles(styles)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    background: '#8e97cc',
-    color: '#fff',
+    width: 250,
+    textAlign: 'center',
+    '& .MuiButton-root': {
+      width: 150,
+      margin: 10
+    }
   },
 }))(MuiDialogContent);
 
@@ -113,14 +80,10 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-const SubmitDialogBox = () => {
+const TestProject = () => {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [state, setState] = React.useState({
-    age: '',
-    name: 'hai',
-  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -129,46 +92,24 @@ const SubmitDialogBox = () => {
     setOpen(false);
   };
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  };
-
   return (
     <Grid>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Submit
+      <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.testBtn}>
+        Test Project
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Submit
+          Test Project
         </DialogTitle>
-        <DialogContent dividers>
-        <form>
-           <Grid className={classes.subTitle}>
-              <h3>Name</h3>
-              <TextField className={classes.link} id="outlined-search" 
-              label="Type..." type="search" variant="outlined" />
-              <Link href="#">
-                 Link
-              </Link>
-            </Grid>
-            <TabPanel/>
-            <Grid className={classes.btnGroup}>
-              <Button variant="contained">
-                Cacel
-              </Button>
-              <Button variant="contained" color="primary">
-                Save
-              </Button>
-            </Grid>  
-         </form>
+        <DialogContent dividers>    
+        <SubmitDialogBox />
+        <ViewList/>
+        <Button variant="contained" color="primary">
+          Help
+        </Button>
         </DialogContent>
       </Dialog>
     </Grid>
   );
 }
-export default SubmitDialogBox;
+export default TestProject;

@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     '& .MuiFormLabel-root':{
       textAlign: 'left',
-      paddingTop: 10
+      paddingTop: 10,
+      display: 'none'
     }
   },
   listContainer: {
@@ -35,13 +36,20 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '15vh',
     background: '#f3f2f2',
     '& h4': {
-      margin: '10px 0px 10px 0px'
+      margin: '10px 0px 10px 0px',
+      textAlign: 'center'
     },
     '& .MuiButton-root': {
       display: 'flex',
       margin: '5px auto',
       width: 100
     }
+  },
+  dragDropBox: {
+    width: '150px',
+    height: '150px',
+    border: '2px dotted',
+    margin: 'auto'
   }
 }));
 
@@ -55,6 +63,7 @@ const DetailsTab = () => {
        aria-label="minimum height" rowsMin={3} placeholder="" />
        <FormControl component="fieldset" className={classes.status}>
         <FormLabel component="legend">Status</FormLabel>
+        <label>Status</label>
         <RadioGroup row aria-label="position" name="position" defaultValue="top">
           <FormControlLabel value="yes" control={<Radio color="primary" />} label="Yes" />
           <FormControlLabel value="no" control={<Radio color="primary" />} label="No" />
@@ -63,6 +72,7 @@ const DetailsTab = () => {
       <Grid container className={classes.listContainer}>
         <Grid item xs={6} className={classes.listBox}>
         <h4>List A</h4>
+        <Grid className={classes.dragDropBox}>Drag and Drop Here</Grid>
         </Grid>
         <Grid item xs={6} className={classes.listBox}>
           <h4>List B</h4>

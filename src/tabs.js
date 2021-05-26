@@ -48,9 +48,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     width: 470,
     color: '#000',
-    margin: 'auto',
+    margin: '10px',
     '& .MuiAppBar-colorPrimary': {
-      backgroundColor: '#8e97cc'
+      backgroundColor: '#656fa5'
     }
   },
 }));

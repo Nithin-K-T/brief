@@ -1,10 +1,10 @@
-import SubmitForm from './submit';
+import TestProject from './testProject';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-       <SubmitForm />
+       <TestProject />
     </div>
   );
 }
